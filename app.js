@@ -21,4 +21,4 @@ app.post('/classifyurl', visual_reco_route.classifyFromURL)
 var port = 3000
 app.listen(port, function() {
 	console.log('listening at:', port)
-});
+})
