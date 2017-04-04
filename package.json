@@ -1,0 +1,31 @@
+{
+  "name": "watson-helper",
+  "version": "1.0.0",
+  "description": "An app to describe images with speech, using Visual Recognition and Text to Speech",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlemi/watson-interpreter.git"
+  },
+  "keywords": [
+    "watson",
+    "interpreter",
+    "speech",
+    "helper",
+    "visual",
+    "recognition",
+    "visually impaired"
+  ],
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "request": "^2.81.0",
+    "watson-developer-cloud": "^2.28.0"
+  },
+  "author": "arlemi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arlemi/watson-interpreter/issues"
+  },
+  "homepage": "https://github.com/arlemi/watson-interpreter#readme"
+}

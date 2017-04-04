@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Watson Visual Helper</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
+		</script>		
+		<script type="text/javascript" src="./js/index.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Watson Helper for the Visually Impaired</h1>
+		</header>
+		<!--<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+			</ul>
+		</nav>-->
+		<section>
+			<div id="imgFromUrl">
+				Enter the URL: <br/>
+				<input type="url" id="imgUrl"/><br/>
+				<input type="submit" id="sendImgUrl" value="describe"/>
+			</div>
+			<div id="imgFromFile">
+				Browse your computer: <br/>
+				<input type="file" id="imgFile" accept="image/x-png, image/jpg,  image/jpeg, image/png"/><br/>
+				<input type="submit" id="sendImgFile" value="describe"/>
+			</div>
+			<div id="result">
+				<div id="text">
+					<span>here will stand the text result</span>
+				</div>
+				<div id="audio">
+					<audio>It's time to update your browser.</audio>
+				</div>
+			</div>
+		</section>
+		<footer>
+			
+		</footer>
+	</body>
+</html>
