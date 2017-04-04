@@ -15,6 +15,7 @@ A simple web-app to describe images by voice to visually impaired users.
 ## TODO
 
 - Use a .env file for the credentials
+- Callback functions on errors
 - Visual Recognition from file
 - Create understandable text from Visual Recognition result
 - Text-to-Speech from previously created text

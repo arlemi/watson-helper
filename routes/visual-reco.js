@@ -12,13 +12,12 @@ var visual_recognition = watson.visual_recognition({
 })
 
 module.exports.classifyFromFile = function(req, res, cb) {
-	console.log('req', req)
 	var params = {
 		images_file: fs.createReadStream(req.file.path)
 	};
 
 	visual_recognition.classify(params, function(err, data) {
-		if(err)
+		if (err)
 			return cb(err)
 		else
 			return res.send(data)
@@ -27,18 +26,18 @@ module.exports.classifyFromFile = function(req, res, cb) {
 
 module.exports.classifyFromURL = function(req, res, cb) {
 
-	var imgUrl=req.body.imgUrl
-		console.log(imgUrl)
-	
+	var imgUrl = req.body.imgUrl
+	console.log(imgUrl)
+
 	var params = {
 		images_file: imgUrl,
-		parameters: { 
-			'url': imgUrl 
+		parameters: {
+			'url': imgUrl
 		}
 	}
 
-	request('https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key='+vr_creds.api_key+'&url='+imgUrl+'&version=2016-05-19', function (err, response, data) {
-		if(err)
+	request('https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=' + vr_creds.api_key + '&url=' + imgUrl + '&version=2016-05-19', function(err, response, data) {
+		if (err)
 			return cb(err)
 		else
 			return res.send(data)
