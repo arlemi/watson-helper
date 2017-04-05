@@ -6,17 +6,19 @@ A simple web-app to describe images by voice to visually impaired users.
 
 - Download or clone this repository
 
-- Change credentials in the credentials.js file
+- Put your service credentials in a .env file at the root of the project
 
-- Run using Node.js
+- Run from command line
 
 `node app.js`
 
 ## TODO
 
-- Use a .env file for the credentials
+- ~~Use a .env file for the credentials~~
 - Callback functions on errors
-- Visual Recognition from file
+- ~~Visual Recognition from file~~
+- ~~Delete files from the temp folder after X hours~~
 - Create understandable text from Visual Recognition result
-- Text-to-Speech from previously created text
+- ~~Text-to-Speech from previously created text~~
 - A bit of CSS couldn't hurt
+- Bonus: Tamper/Greasemonkey plugin (might reach the limit for Visual Recognition too quickly...)

@@ -1,2 +1,5 @@
 credentials.js
 node_modules/
+.env
+uploads/
+public/uploads/

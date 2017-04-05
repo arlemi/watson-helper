@@ -1,7 +1,20 @@
 // express
-var express = require('express')
-var app = express()
-var bodyParser = require('body-parser')
+var express = require('express'),
+	app = express(),
+	bodyParser = require('body-parser'),
+	multer = require('multer'),
+	dotenv = require('dotenv').config()
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname)
+  }
+})
+
+var upload = multer({ storage: storage })
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -22,7 +35,9 @@ app.get('/', function(req, res) {
 
 app.post('/classifyurl', visual_reco_route.classifyFromURL)
 
-app.post('/classifyfile', visual_reco_route.classifyFromFile)
+app.post('/classifyfile', upload.single('images_file'), visual_reco_route.classifyFromFile)
+
+app.post('/tospeech', text_to_speech_route.toSpeech)
 
 var port = 3000
 app.listen(port, function() {
