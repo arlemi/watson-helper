@@ -8,15 +8,17 @@ var text_to_speech = watson.text_to_speech({
 })
 
 module.exports.toSpeech = function(req, res, cb) {
+	var text = req.body.text
+	var timestamp = Date.now()
 	var params = {
-		text: 'Hello world',
+		text: text,
 		voice: 'en-US_AllisonVoice',
 		accept: 'audio/ogg'
 	}
 
 	text_to_speech.synthesize(params).on('error', function(error) {
 		console.log('Error:', error)
-	}).pipe(fs.createWriteStream('./public/uploads/result.ogg').on('finish', function() {
-		res.send('OK')
+	}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.ogg').on('finish', function() {
+		res.send({timestamp: timestamp})
 	}))
 }
