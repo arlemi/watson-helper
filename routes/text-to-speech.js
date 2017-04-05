@@ -22,8 +22,8 @@ module.exports.toSpeech = function(req, res, cb) {
 		accept: 'audio/ogg'
 	}
 
-	text_to_speech.synthesize(params).on('error', function(error) {
-		console.log('Error:', error)
+	text_to_speech.synthesize(params).on('error', function(err) {
+		return res.status(500).send('Could not create audio file from text!')
 	}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.ogg').on('finish', function() {
 		res.send({timestamp: timestamp})
 	}))

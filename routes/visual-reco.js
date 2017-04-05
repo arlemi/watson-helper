@@ -15,10 +15,7 @@ var visual_recognition = watson.visual_recognition({
 */
 module.exports.classifyFromFile = function(req, res, cb) {
 	if (!req.file && !req.file.path) {
-		return cb({
-			error: 'Missing required parameter: file',
-			code: 400
-		})
+		return res.status(500).send('File is missing!')
 	}
 
 	var params = {
@@ -27,7 +24,7 @@ module.exports.classifyFromFile = function(req, res, cb) {
 
 	visual_recognition.classify(params, function(err, data) {
 		if (err)
-			return cb(err)
+			return res.status(500).send('Could not classify image!')
 		else
 			return res.send(data)
 	})
@@ -43,7 +40,7 @@ module.exports.classifyFromURL = function(req, res, cb) {
 
 	request('https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=' + process.env.VR_API_KEY + '&url=' + imgUrl + '&version=2016-05-19', function(err, response, data) {
 		if (err)
-			return cb(err)
+			return res.status(500).send('Could not classify image!')
 		else
 			return res.send(data)
 	});
