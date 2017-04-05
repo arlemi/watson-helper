@@ -7,6 +7,17 @@ A simple web-app to describe images by voice to visually impaired users.
 - Download or clone this repository
 
 - Put your service credentials in a .env file at the root of the project
+```
+# Visual Recognition
+VR_API_KEY=
+VR_VERSION=
+VR_VERSION_DATE=
+
+# Text to Speech
+TTS_USERNAME=
+TTS_PASSWORD=
+TTS_VERSION=v1
+```
 
 - Run from command line
 
