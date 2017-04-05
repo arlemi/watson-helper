@@ -1,10 +1,13 @@
-// express
 var express = require('express'),
 	app = express(),
 	bodyParser = require('body-parser'),
 	multer = require('multer'),
 	dotenv = require('dotenv').config()
 
+/* 
+*   using multer for file upload 
+*   when the user is getting a file from his computer 
+*/
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/uploads')
@@ -23,7 +26,9 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(__dirname + '/public'))
 
-// routes
+/* 
+*   routes declaration
+*/
 var visual_reco_route = require('./routes/visual-reco'),
 	text_to_speech_route = require('./routes/text-to-speech')
 

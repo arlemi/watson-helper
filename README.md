@@ -19,6 +19,8 @@ TTS_PASSWORD=
 TTS_VERSION=v1
 ```
 
+- Create an **uploads** folder in **public**  
+
 - Install dependencies
 
 `npm install`

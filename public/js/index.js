@@ -1,8 +1,10 @@
 $(document).ready(function() {
 	$('input#sendImgUrl').on('click', function(res) {
 		var imgUrl = $('input#imgUrl').val()
+		// checks if the URL is correct before sending request
 		if (/https?:\/\/.*\.(?:png|jpg)/.test(imgUrl)) {
-			waitStart()
+			// shows waiting spinners
+			waitStart() 
 			$.post('/classifyurl', {
 				imgUrl: imgUrl
 			}).done(function(data) {
@@ -15,7 +17,11 @@ $(document).ready(function() {
 
 	$('input#sendImgFile').on('click', function(res) {
 		var formData = new FormData()
+		// checks if a file has been added before sending request
 		if($('input#imgFile')[0].files[0]) {
+			// shows waiting spinners
+			waitStart() 
+			// create a formData to upload file asynchronously 
 			formData.append('images_file', $('input#imgFile')[0].files[0]);
 			$.ajax({
 				url: '/classifyfile',
@@ -34,6 +40,7 @@ $(document).ready(function() {
 	})
 
 	function describeImage(obj) {		
+		// checks whether VR could recognise something
 		if(!obj.images[0].classifiers[0].classes) {
 			showText("I couldn't find anything in that image")
 			return
@@ -51,6 +58,7 @@ $(document).ready(function() {
 				containsMaybe += currentClass.class + ", "
 		}
 
+		// different cases based on the diff confidence level of the result
 		if(containsLikely != "" && containsMaybe != "") {
 			describingTxt = "This image probably contains:"
 				+ containsLikely

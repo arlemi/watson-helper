@@ -8,6 +8,11 @@ var visual_recognition = watson.visual_recognition({
 	version: process.env.VR_VERSION
 })
 
+/* 
+*   When uploading from computer:
+*   - creates a readstream from file
+*   - returns the classes recognized
+*/
 module.exports.classifyFromFile = function(req, res, cb) {
 	if (!req.file && !req.file.path) {
 		return cb({
@@ -28,16 +33,13 @@ module.exports.classifyFromFile = function(req, res, cb) {
 	})
 }
 
+/* 
+*   When reading from URL:
+*   - GET request to the API
+*   - returns the classes recognized
+*/
 module.exports.classifyFromURL = function(req, res, cb) {
 	var imgUrl = req.body.imgUrl
-	console.log(imgUrl)
-
-	var params = {
-		images_file: imgUrl,
-		parameters: {
-			'url': imgUrl
-		}
-	}
 
 	request('https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=' + process.env.VR_API_KEY + '&url=' + imgUrl + '&version=2016-05-19', function(err, response, data) {
 		if (err)
