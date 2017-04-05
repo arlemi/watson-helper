@@ -68,7 +68,7 @@ $(document).ready(function() {
 	}
 
 	function showText(txt) {
-		$('div#text').empty().html('<span>' + txt + '</span>')
+		$('div#text').empty().html('<p>' + txt + '</p>')
 		sayText(txt)
 	}
 

@@ -1,9 +1,11 @@
+<!doctype html>
 <html>
 	<head>
 		<title>Watson Visual Helper</title>
+		<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>		
 		<script type="text/javascript" src="./js/index.js"></script>
-		<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
 	</head>
 	<body>
 		<header>
@@ -16,13 +18,21 @@
 			</ul>
 			</nav>-->
 		<section>
+			<div id="instructions">
+				<ol type="1">
+					<li>Select the image you want to have a description of (link or upload)</li>
+					<li>Click the describe button</li>
+					<li>Wait...</li>
+					<li>Read or listen the description of the image</li>
+				</ol>
+			</div>
 			<div id="imgFromUrl">
-				Enter the URL: <br/>
+				From a URL: <br/>
 				<input type="url" id="imgUrl"/><br/>
 				<input type="submit" id="sendImgUrl" value="describe"/>
 			</div>
 			<div id="imgFromFile">
-				Browse your computer: <br/>
+				From your computer: <br/>
 				<input type="file" id="imgFile" accept="image/x-png, image/jpg,  image/jpeg, image/png"/><br/>
 				<input type="submit" id="sendImgFile" value="describe"/>
 			</div>

@@ -10,16 +10,16 @@ A simple web-app to describe images by voice to visually impaired users.
 ```
 # Visual Recognition
 VR_API_KEY=
-VR_VERSION=
-VR_VERSION_DATE=
+VR_VERSION=v3
+VR_VERSION_DATE=2016-05-20
 
 # Text to Speech
 TTS_USERNAME=
 TTS_PASSWORD=
-TTS_VERSION=
+TTS_VERSION=v1
 ```
 
-- Install dependancies
+- Install dependencies
 
 `npm install`
 
