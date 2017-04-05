@@ -16,9 +16,8 @@ VR_VERSION_DATE=
 # Text to Speech
 TTS_USERNAME=
 TTS_PASSWORD=
-TTS_VERSION=v1
+TTS_VERSION=
 ```
-
 - Run from command line
 
 `node app.js`
