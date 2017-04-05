@@ -1,0 +1,26 @@
+body {
+	background-image:url('../images/background.png');
+	background-repeat:no-repeat;
+	background-position:right bottom;
+	background-color: #f4f4f4;
+}
+
+header {
+	margin-bottom: 50px;	
+}
+
+header, section {
+	text-align: center;
+}
+
+div#imgFromUrl, div#imgFromFile, div#text, div#audio {
+	display: inline-block;
+	width: 40%;
+	font-size: 2em;
+	margin: 50px 0px 50px 0px;
+}
+
+footer {
+	position: fixed;
+	bottom: 0px;
+}

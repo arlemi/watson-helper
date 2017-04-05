@@ -2,6 +2,7 @@ $(document).ready(function() {
 	$('input#sendImgUrl').on('click', function(res) {
 		var imgUrl = $('input#imgUrl').val()
 		if (/https?:\/\/.*\.(?:png|jpg)/.test(imgUrl)) {
+			waitStart()
 			$.post('/classifyurl', {
 				imgUrl: imgUrl
 			}).done(function(data) {
@@ -67,17 +68,22 @@ $(document).ready(function() {
 	}
 
 	function showText(txt) {
-		$('div#text span').text(txt)
+		$('div#text').empty().html('<span>' + txt + '</span>')
 		sayText(txt)
 	}
 
 	function sayText(txt) {
 		$.post('/tospeech', {text: txt}).done(function(res, status, err) {
-			$('#audio audio').attr({
+			$('#audio').empty()
+			$('<audio controls>It\'s time to update your browser.</audio>').attr({
 				'src': './uploads/'+ res.timestamp +'-result.ogg',
 				'volume': 0.4,
 				'autoplay': 'autoplay'
-			})
+			}).appendTo('#audio')
 		})
+	}
+
+	function waitStart() {
+		$('div#text, div#audio').append('<img src="./images/wait.gif"/>')
 	}
 })
