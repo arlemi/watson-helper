@@ -92,6 +92,6 @@ $(document).ready(function() {
 	}
 
 	function waitStart() {
-		$('div#text, div#audio').append('<img src="./images/wait.gif"/>')
+		$('div#text, div#audio').empty().append('<img src="./images/wait.gif"/>')
 	}
 })
