@@ -18,6 +18,11 @@ TTS_USERNAME=
 TTS_PASSWORD=
 TTS_VERSION=
 ```
+
+- Install dependancies
+
+`npm install`
+
 - Run from command line
 
 `node app.js`
