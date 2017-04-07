@@ -1,6 +1,6 @@
 # Watson Helper for the Visually Impaired
 
-A simple web-app to describe images by voice to visually impaired users.
+A simple web-app to describe images by voice to visually impaired users. 
 
 ## Instructions
 
@@ -31,5 +31,5 @@ TTS_VERSION=v1
 
 ## TODO
 
-- A little bit more of CSS
+- A little bit more of CSS - make the ui usable by everyone ([see here](http://www.afb.org/info/programs-and-services/technology-evaluation/creating-accessible-websites/123))
 - Bonus: Tamper/Greasemonkey plugin (might reach the limit for Visual Recognition too quickly...)
