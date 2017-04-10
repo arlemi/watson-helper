@@ -32,4 +32,5 @@ TTS_VERSION=v1
 ## TODO
 
 - A little bit more of CSS - make the ui usable by everyone ([see here](http://www.afb.org/info/programs-and-services/technology-evaluation/creating-accessible-websites/123))
+- Add Natural Language Understanding to describe the content of a website (main topic, authors...)
 - Bonus: Tamper/Greasemonkey plugin (might reach the limit for Visual Recognition too quickly...)

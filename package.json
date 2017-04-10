@@ -2,7 +2,7 @@
   "name": "watson-helper",
   "version": "1.0.0",
   "description": "An app to describe images with speech, using Visual Recognition and Text to Speech",
-  "main": "index.js",
+  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arlemi/watson-interpreter.git"
