@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/arlemi/watson-interpreter.git"
   },
+  "scripts": {
+    "start": "node app.js"
+  },
   "keywords": [
     "watson",
     "interpreter",
