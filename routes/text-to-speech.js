@@ -19,12 +19,12 @@ module.exports.toSpeech = function(req, res, cb) {
 	var params = {
 		text: text,
 		voice: 'en-US_AllisonVoice',
-		accept: 'audio/ogg'
+		accept: 'audio/wav'
 	}
 
 	text_to_speech.synthesize(params).on('error', function(err) {
 		return res.status(500).send('Could not create audio file from text!')
-	}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.ogg').on('finish', function() {
+	}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.wav').on('finish', function() {
 		res.send({timestamp: timestamp})
 	}))
 }
