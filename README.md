@@ -16,7 +16,6 @@ VR_VERSION_DATE=2016-05-20
 # Text to Speech
 TTS_USERNAME=
 TTS_PASSWORD=
-TTS_VERSION=v1
 ```
 
 - Create an **uploads** folder in **public**  

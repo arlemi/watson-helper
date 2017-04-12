@@ -1,10 +1,9 @@
-var watson = require('watson-developer-cloud'),
+var TextToSpeechV1 = require('watson-developer-cloud/text-to-speech/v1'),
 	fs = require('fs')
 
-var text_to_speech = watson.text_to_speech({
+var text_to_speech = new TextToSpeechV1 ({
 	username: process.env.TTS_USERNAME,
 	password: process.env.TTS_PASSWORD,
-	version: process.env.TTS_VERSION
 })
 
 /* 
@@ -14,6 +13,7 @@ var text_to_speech = watson.text_to_speech({
 * 	- returns the timestamp to frontend
 */
 module.exports.toSpeech = function(req, res, cb) {
+
 	var text = req.body.text
 	var timestamp = Date.now()
 	var params = {
@@ -22,9 +22,17 @@ module.exports.toSpeech = function(req, res, cb) {
 		accept: 'audio/wav'
 	}
 
-	text_to_speech.synthesize(params).on('error', function(err) {
-		return res.status(500).send('Could not create audio file from text!')
-	}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.wav').on('finish', function() {
-		res.send({timestamp: timestamp})
-	}))
+	// dirty workaround, beforehand call to voices() to check the credentials
+	text_to_speech.voices(null, function(error, voice) {
+	  if (error)
+	    res.status(401).send('Wrong credentials')
+	  else { 
+	  	text_to_speech.synthesize(params).on('error', function(err) {
+			return res.status(500).send('Could not create an audio file from the provided text!')
+		}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.wav').on('finish', function() {
+			res.send({timestamp: timestamp})
+		}))
+	  }
+	});
+
 }
