@@ -13,13 +13,12 @@ var text_to_speech = new TextToSpeechV1 ({
 * 	- returns the timestamp to frontend
 */
 module.exports.toSpeech = function(req, res, cb) {
-
 	var text = req.body.text
 	var timestamp = Date.now()
 	var params = {
 		text: text,
 		voice: 'en-US_AllisonVoice',
-		accept: 'audio/wav'
+		accept: 'audio/ogg'
 	}
 
 	// dirty workaround, beforehand call to voices() to check the credentials
@@ -29,10 +28,9 @@ module.exports.toSpeech = function(req, res, cb) {
 	  else { 
 	  	text_to_speech.synthesize(params).on('error', function(err) {
 			return res.status(500).send('Could not create an audio file from the provided text!')
-		}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.wav').on('finish', function() {
+		}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.ogg').on('finish', function() {
 			res.send({timestamp: timestamp})
 		}))
 	  }
-	});
-
+	})
 }

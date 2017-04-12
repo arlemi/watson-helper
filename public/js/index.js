@@ -84,10 +84,12 @@ $(document).ready(function() {
 		$.post('/tospeech', {text: txt}).done(function(res, status, err) {
 			$('#audio').empty()
 			$('<audio controls>It\'s time to update your browser.</audio>').attr({
-				'src': './uploads/'+ res.timestamp +'-result.wav',
+				'src': './uploads/'+ res.timestamp +'-result.ogg',
 				'volume': 0.4,
 				'autoplay': 'autoplay'
 			}).appendTo('#audio')
+		}).fail(function(res, status, err) {
+			$('div#audio').empty().html('<p>The service returned the following error:<br/>' + err + '<br/>Please try again.</p>')
 		})
 	}
 
