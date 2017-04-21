@@ -21,16 +21,12 @@ module.exports.toSpeech = function(req, res, cb) {
 		accept: 'audio/ogg'
 	}
 
-	// dirty workaround, beforehand call to voices() to check the credentials
-	text_to_speech.voices(null, function(error, voice) {
-	  if (error)
-	    res.status(401).send('Wrong credentials')
-	  else { 
-	  	text_to_speech.synthesize(params).on('error', function(err) {
-			return res.status(500).send('Could not create an audio file from the provided text!')
-		}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.ogg').on('finish', function() {
-			res.send({timestamp: timestamp})
-		}))
-	  }
-	})
+	text_to_speech.synthesize(params, function(err) {
+		if (err)
+	    	res.status(401).send('Wrong credentials')
+	}).on('error', function(err) {
+		return res.status(500).send('Could not create an audio file from the provided text!')
+	}).pipe(fs.createWriteStream('./public/uploads/' + timestamp + '-result.ogg').on('finish', function() {
+		res.send({timestamp: timestamp})
+	}))
 }

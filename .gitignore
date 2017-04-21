@@ -1,6 +1,3 @@
-credentials.js
 node_modules/
 .env
-uploads/
-public/uploads/
 npm-debug.log
