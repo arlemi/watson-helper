@@ -18,8 +18,6 @@ TTS_USERNAME=
 TTS_PASSWORD=
 ```
 
-- Create an **uploads** folder in **public**  
-
 - Install dependencies
 
 `npm install`
